@@ -1,25 +1,15 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const http = require('http');
+const express = require('express')
+const cors = require('cors')
+const http = require('http')
 const routes = require('./routes')
-const { setupWebsocket } = require('./websocket');
-
-require('dotenv').config();
+global.database = require('./database')
+const { setupWebsocket } = require('./websocket')
 
 const app = express();
 
 const server = http.Server(app);
 
 setupWebsocket(server);
-
-const mdbUrl = process.env.mdbUrl;
-
-mongoose.connect(mdbUrl, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-});
 
 app.use(cors());
 app.use(express.json());
