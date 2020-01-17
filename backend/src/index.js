@@ -1,9 +1,9 @@
 const express = require('express')
 const cors = require('cors')
 const http = require('http')
-const routes = require('./routes')
-global.database = require('./database')
+const routes = require('./routes/devs.routes')
 const { setupWebsocket } = require('./websocket')
+global.database = require('./database')
 
 const app = express();
 
