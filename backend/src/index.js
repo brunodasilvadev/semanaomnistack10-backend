@@ -17,7 +17,8 @@ const mdbUrl = process.env.mdbUrl;
 
 mongoose.connect(mdbUrl, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useCreateIndex: true,
 });
 
 app.use(cors());
